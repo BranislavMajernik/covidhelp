@@ -1,0 +1,31 @@
+@startuml
+left to right direction
+skinparam packageStyle rectangle
+actor občan
+actor operátor
+actor zdravotník
+actor kuriér
+rectangle COVID_Pomoc_ObčanUseCase {
+  operátor --> (checkout)
+  občan --> (pomoc)
+  (pomoc) .> (kontrolaSMS) : include
+  (pomoc) -> (checkout) : extends
+  (checkout) -> (donáška) : extends
+  (checkout) -> (testovanie) : extends
+  (donáška) --> kuriér
+  (testovanie) --> zdravotník
+  
+}
+
+rectangle COVID_Pomoc_ZdravotníkUseCase {
+    zdravotník --> (test_update)
+    
+    (test_update) .> (health_status_update) : include
+}
+
+rectangle COVID_Pomoc_KuriérUseCase {
+    kuriér --> (delivery_update)
+}
+
+
+@enduml

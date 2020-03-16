@@ -3,7 +3,6 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 This a fronted web app helping to people handle Covid19 infections with request for help. (in Slovak language)
 ![Screenshot of frontend home](public/screenshot1.png)
 
-
 ## Available Scripts
 
 In the project directory, you can run:
@@ -30,5 +29,14 @@ It correctly bundles React in production mode and optimizes the build for the be
 The build is minified and the filenames include the hashes.<br />
 Your app is ready to be deployed!
 
-### Advanced Configuration
+### Diagrams
+
+Diagrams tell the application story, first use case, who using what
+![UseCases diagram](public/usecd.png)
+
+The sequence -> is used to draw a message between participants, how using what
+![Sequence diagram](public/seqd.png)
+
+Class diagram, entity relations, domain driven design who with who
+![Class diagram](public/classd.png)
 

@@ -1,0 +1,57 @@
+@startuml
+scale 2
+class Event {
+    -phone: string
+    -initTime: DateTime
+    -type: string
+    -registration: boolean
+    -controlCode: string
+    +notifyPerson()
+}
+
+class User {
+    -phone: string
+    -firstn: string
+    -lastn: string
+    -street: string
+    -strnumber: string
+    -city: string
+    -operation: Operation
+    -changeProfile()
+    }
+
+
+class Operation {
+    -testDelivery:DateTime
+    -testStatus:boolean
+    +setStatus()
+
+}
+
+class Checkout {
+    -openCheckout: boolean
+    -citizen: User
+    -queue: MQueue
+    -callForAction()
+    +applyForEvent()
+}
+
+class MQueue {
+    -type: string
+    -source: string
+    +sendMessage()
+    +recieveMessage()
+}
+
+class DeliveryAttendee {
+    -eventAttended: number
+    -suggestEventBasedOnPreference()
+    +registerForTicket()
+}
+
+User <|-- Checkout
+Event <|-- Checkout
+MQueue <|-- Checkout
+Operation <|-- User
+Event "*" o-- "1" DeliveryAttendee
+@enduml

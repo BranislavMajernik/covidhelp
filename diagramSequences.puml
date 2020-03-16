@@ -1,0 +1,21 @@
+@startuml
+actor občan
+boundary COVIDHelpHomePage
+control SMS
+entity CheckoutDispatcher
+database DB
+collections MessageQueues
+občan -> COVIDHelpHomePage : To boundary
+COVIDHelpHomePage -> SMS : To control
+SMS -> COVIDHelpHomePage : To activate
+COVIDHelpHomePage -> CheckoutDispatcher : To entity
+CheckoutDispatcher -> DB : To database
+CheckoutDispatcher -> MessageQueues : To queues
+MessageQueues -> delivery: To delivery
+entity UpdateDispatcher
+boundary COVIDHelpUpdatePage
+actor delivery
+delivery -> COVIDHelpUpdatePage : To update
+COVIDHelpUpdatePage -> UpdateDispatcher : To update entity
+UpdateDispatcher -> DB : To database
+@enduml
