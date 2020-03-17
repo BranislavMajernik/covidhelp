@@ -9,7 +9,7 @@ export default class Header extends Component{
             <div>
               <Jumbotron>
                 <h1 className="display-3">COVID Pomoc</h1>
-                <p className="lead"><h3>Prosím zadajte svoje telefónne číslo. Pošleme Vám spätne SMS kód na kontrolu. Pre doručenie služby vyplnte všetky uvedené údaje !</h3></p>
+                <p className="lead"><h3>Prosím zadajte svoje telefónne číslo. Pošleme Vám spätne SMS kód na kontrolu. Pre doručenie služby vyplňte všetky uvedené údaje !</h3></p>
                 <p className="lead">
                   <InitForm></InitForm>
                 </p>
