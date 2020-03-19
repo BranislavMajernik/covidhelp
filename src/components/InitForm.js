@@ -76,7 +76,7 @@ export default class InitForm extends Component {
 
         };
         
-        axios.post('http://localhost:4000/covid/add',obj)
+        axios.post('http://localhost:4000/verify/add',obj)
             .then(res => console.log(res.data));
                
         this.setState({
@@ -87,6 +87,8 @@ export default class InitForm extends Component {
             StrNumber: '',
             City: ''
         })
+
+        
        
     }
 

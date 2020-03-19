@@ -1,8 +1,32 @@
 import React,{Component} from 'react';
-import {Container,Jumbotron,Button} from 'reactstrap';
+import {Container,Jumbotron,UncontrolledCarousel, Row, Col} from 'reactstrap';
 
 
 export default class About extends Component{
+
+    items = [
+        {
+          src: './health.jpeg',
+          altText: 'Spájame sa v pomoci',
+          caption: 'Dáta',
+          header: 'Digitálne zdravotné služby',
+          key: '1'
+        },
+        {
+          src: './health.jpeg',
+          altText: 'Spájame sa v pomoci',
+          caption: 'Integrácia',
+          header: 'Digitálne zdravotné služby',
+          key: '2'
+        },
+        {
+          src: './health.jpeg',
+          altText: 'Spájame sa v pomoci',
+          caption: 'Aplikácie',
+          header: 'Digitálne zdravotné služby',
+          key: '3'
+        }
+      ];
 
     render(){
         return(
@@ -13,7 +37,11 @@ export default class About extends Component{
                 <p className="lead">Rýchla pomoc.</p>
                 <hr className="my-2" />
                 <p></p>
+                <Row>
+                <Col sm="4"></Col> 
+                <Col sm="4"><UncontrolledCarousel items={this.items} /></Col>
                 
+                </Row>
               </Container>
                 </Jumbotron>
             </div>
