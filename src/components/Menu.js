@@ -37,6 +37,9 @@ export default class Menu extends Component{
                     <NavLink href="/">Pomoc</NavLink>
                 </NavItem>
                 <NavItem>
+                    <NavLink href="/provider">Poskytovateľ</NavLink>
+                </NavItem>
+                <NavItem>
                     <NavLink href="/about">O aplikácii</NavLink>
                 </NavItem>
                 </Nav>
