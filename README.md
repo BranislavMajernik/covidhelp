@@ -3,6 +3,9 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 This a fronted web app helping to people handle Covid19 infections with request for help. (in Slovak language)
 ![Screenshot of frontend home](public/screenshot1.png)
 
+This a status web app helping to people handle Covid19 infections with request for help. (in Slovak language)
+![Screenshot of frontend home](public/screenshot2.png)
+
 ## Available Scripts
 
 In the project directory, you can run:

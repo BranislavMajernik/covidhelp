@@ -13,7 +13,9 @@ class MenuCard extends Component{
     
     this.state = {
         SMSNumber1: '',
-        SMSNumber2: ''
+        SMSNumber2: '',
+        SMSNumber1valid: false,
+        SMSNumber2valid: false
     }
     }
     onChangeSMS1(e) {
@@ -28,19 +30,45 @@ class MenuCard extends Component{
       });
       
     }
+
+    handleValidation1(){
+      let sms = this.state.SMSNumber1;
+
+      if (sms.length < 4) {
+        this.SMSNumber1valid = false;
+      }
+      else {this.SMSNumber1valid = true}
+     return this.SMSNumber1valid;
+    }
+
+    handleValidation2(){
+      let sms = this.state.SMSNumber2;
+
+      if (sms.length < 4) {
+        this.SMSNumber2valid = false;
+      }
+      else {this.SMSNumber2valid = true}
+     return this.SMSNumber2valid;
+    }
+
     onSubmit1(e) {
       e.preventDefault();
       const obj = {
           SMSNumber1: this.state.SMSNumber1
       };
+
+      if(this.handleValidation1()){
+        axios.post('http://localhost:4000/verify/addsms1',obj)
+        .then(res => console.log(res.data));
+           
+        this.setState({
+        SMSNumber1: '',
+        })  
+        this.props.history.push('/result1');
+        } else {
+          alert("Zadajte SMS kód !")
+      }
       
-      axios.post('http://localhost:4000/verify/addsms1',obj)
-          .then(res => console.log(res.data));
-             
-      this.setState({
-          SMSNumber1: '',
-      })  
-      this.props.history.push('/result');
       }
 
       onSubmit2(e) {
@@ -49,13 +77,17 @@ class MenuCard extends Component{
             SMSNumber2: this.state.SMSNumber2
         };
         
-        axios.post('http://localhost:4000/verify/addsms2',obj)
-            .then(res => console.log(res.data));
-               
-        this.setState({
-            SMSNumber2: '',
-        })  
-        this.props.history.push('/result');
+        if(this.handleValidation2()){
+          axios.post('http://localhost:4000/verify/addsms2',obj)
+          .then(res => console.log(res.data));
+             
+          this.setState({
+          SMSNumber2: '',
+          })  
+          this.props.history.push('/result2');
+          } else {
+            alert("Zadajte SMS kód !")
+        }
         }
 
     render(){

@@ -5,6 +5,25 @@ import {Button, Card, CardImg, CardTitle, CardText, Row, Col,  InputGroup, Input
 
 export default class Result extends Component{
 
+    constructor(props) {
+        super(props);
+        this.state = {
+          contacts: [],
+          albums:[],
+          patients: []
+        };
+      }
+
+
+    componentDidMount() {
+        fetch('https://bnwcsnniopjzils-atpdbbmsk.adb.uk-london-1.oraclecloudapps.com/ords/books_admin/transactions/list/')
+        .then(res => res.json())
+        .then((data) => {
+          this.setState({ patients: data.items }) 
+        })
+        .catch(console.log)
+      }
+
     render(){
         return(
             <div>
@@ -15,18 +34,18 @@ export default class Result extends Component{
                 <hr className="my-2" />
                 <p><Progress multi>
                     <Progress animated bar value="10">V systéme</Progress>
-                    <Progress animated bar color="success" value="30" >Na ceste k Vám</Progress>
+                    <Progress animated bar color="success" value="5" >Na ceste k Vám</Progress>
                    </Progress>
                 </p>
-                <Card body outline color="danger">
+                <Card body outline color="primary">
                     
-                    <CardTitle><h2>Vybrali ste si: Otestovanie na infekciu COVID19</h2></CardTitle>
-                    <CardText>Pripravte na príjazd zdravotníckych pracovníkov na uvedenej adrese. Zelená farba ukazovateľa znamená, že sú na ceste.</CardText>
+                    <CardTitle><h2>Vybrali ste si: Donášku potravín</h2></CardTitle>
+                    <CardText>Pripravte na príjazd kuriérskej služby. Zelená farba ukazovateľa znamená, že sú na ceste.</CardText>
                         <InputGroup>
                         <InputGroupAddon addonType="prepend">
                         <InputGroupText>Na ceste k Vám</InputGroupText>
                         </InputGroupAddon>
-                        <Input placeholder="je posádka vozidla BA789AG s doktorom Šrobárom" />
+                        <Input placeholder="je kuriér spoločnosti Bold František, ŠPZ BA234AC" />
                         </InputGroup>
                         <br /><p/>
                         <InputGroup>
