@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { BrowserRouter as Router, Switch, Route, Link } from 'react-router-dom';
 import Logo from './logo.svg';
 import './App.css';
+import './Animate.css';
 import About from './components/About';
 import Result1 from './components/Result1';
 import Result2 from './components/Result2';

@@ -12,13 +12,13 @@ export default class HBarChart extends React.Component {
           fill: false,
           backgroundColor: [
             'rgba(255, 99, 132, 0.2)',
-            'rgba(54, 162, 235, 0.2)',
+            'rgba(54, 255, 235, 0.2)',
             'rgba(99, 203, 54, 0.2)'
           ],
           borderColor: [
             'rgb(255, 99, 132)',
-            'rgb(54, 162, 235)',
-            'rgb(54, 203, 54)'
+            'rgb(54, 255, 255)',
+            'rgb(54, 255, 54)'
           ],
           borderWidth: 1
         }

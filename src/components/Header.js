@@ -1,13 +1,13 @@
 import React, {Component} from 'react';
 import {Jumbotron, Button} from 'reactstrap';
-
+import bgimage from './hero_bg_blue.png'
 import InitForm from './InitForm';
 
 export default class Header extends Component{
     render(){
         return (
             <div>
-              <Jumbotron>
+              <Jumbotron style={{ backgroundImage: `url(${bgimage})`, backgroundSize: 'cover' }}>
                 <h1 className="display-3">COVID Pomoc</h1>
                 <p className="lead"><h3>Prosím zadajte svoje telefónne číslo. Pošleme Vám spätne SMS kód na kontrolu. Pre doručenie služby vyplňte všetky uvedené údaje !</h3></p>
                 <p className="lead">

@@ -1,9 +1,8 @@
 import React, {Component} from 'react';
 import {Button, Card, CardImg, CardTitle, CardText, Row, Col,  InputGroup, InputGroupAddon, InputGroupText, Input} from 'reactstrap';
-
-
 import { 	withRouter } from 'react-router-dom';
 import axios from 'axios';
+import {Animated} from "react-animated-css";
 
 class MenuCard extends Component{
   constructor(props) {
@@ -95,6 +94,7 @@ class MenuCard extends Component{
     <Row> 
       <Col sm="2"></Col>  
       <Col sm="4">
+      <Animated animationIn="bounceInLeft" animationOut="fadeOut" isVisible={true}>
         <Card body outline color="danger">
         <form onSubmit={this.onSubmit1.bind(this)}>   
           <CardTitle><h2>Otestovanie na infekciu COVID19</h2></CardTitle>
@@ -108,8 +108,10 @@ class MenuCard extends Component{
           <Button type="submit" color="danger">Potrebujem testovanie</Button>
           </form>
         </Card>
+       </Animated> 
       </Col>
       <Col sm="4"> 
+      <Animated animationIn="bounceInRight" animationOut="fadeOut" isVisible={true}>  
         <Card body outline color="primary">
         <form onSubmit={this.onSubmit2.bind(this)}>   
           <CardTitle><h2>Donáška jedla ľuďom v karanténe</h2></CardTitle>
@@ -123,6 +125,7 @@ class MenuCard extends Component{
           <Button type="submit" color="primary">Potrebujem donášku</Button>
           </form>
         </Card>
+        </Animated>
       </Col>
     </Row>
           );

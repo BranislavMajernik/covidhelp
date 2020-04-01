@@ -1,7 +1,9 @@
 import React,{Component} from 'react';
 import {Container,Jumbotron,Progress} from 'reactstrap';
 import {Button, Card, CardImg, CardTitle, CardText, Row, Col,  InputGroup, InputGroupAddon, InputGroupText, Input} from 'reactstrap';
+import {Animated} from "react-animated-css";
 
+import bgimage from './hero_bg_blue.png'
 
 export default class Result extends Component{
 
@@ -27,7 +29,7 @@ export default class Result extends Component{
     render(){
         return(
             <div>
-                <Jumbotron fluid>
+                <Jumbotron style={{ backgroundImage: `url(${bgimage})`, backgroundSize: 'cover' }} fluid>
                 <Container fluid>
                 <h1 className="display-5">COVID Pomoc</h1>
                 <p className="lead">Stav vybavenia požiadavky</p>
@@ -37,6 +39,7 @@ export default class Result extends Component{
                     <Progress animated bar color="success" value="5" >Na ceste k Vám</Progress>
                    </Progress>
                 </p>
+                <Animated animationIn="zoomIn" animationOut="fadeOut" isVisible={true}>
                 <Card body outline color="primary">
                     
                     <CardTitle><h2>Vybrali ste si: Donášku potravín</h2></CardTitle>
@@ -63,6 +66,7 @@ export default class Result extends Component{
                         </InputGroup>
                         
                 </Card>
+                </Animated>
                 </Container>
                 </Jumbotron>
             </div>
