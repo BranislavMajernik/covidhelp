@@ -1,6 +1,6 @@
 import React,{Component} from 'react';
 import {Container,Jumbotron,UncontrolledCarousel, Row, Col} from 'reactstrap';
-
+import bgimage from './hero_bg_blue.png'
 
 export default class About extends Component{
 
@@ -8,22 +8,22 @@ export default class About extends Component{
         {
           src: './health.jpeg',
           altText: 'Spájame sa v pomoci',
-          caption: 'Dáta',
-          header: 'Digitálne zdravotné služby',
+          caption: 'Digitálne zdravotné služby',
+          header: 'Dáta',
           key: '1'
         },
         {
           src: './health.jpeg',
           altText: 'Spájame sa v pomoci',
-          caption: 'Integrácia',
-          header: 'Digitálne zdravotné služby',
+          caption: 'Digitálne zdravotné služby',
+          header: 'Integrácia',
           key: '2'
         },
         {
           src: './health.jpeg',
           altText: 'Spájame sa v pomoci',
-          caption: 'Aplikácie',
-          header: 'Digitálne zdravotné služby',
+          caption: 'Digitálne zdravotné služby',
+          header: 'Aplikácie',
           key: '3'
         }
       ];
@@ -31,7 +31,7 @@ export default class About extends Component{
     render(){
         return(
             <div>
-                <Jumbotron fluid>
+                <Jumbotron style={{ backgroundImage: `url(${bgimage})`, backgroundSize: 'cover' }} fluid>
                 <Container fluid>
                 <h1 className="display-5">COVID Pomoc</h1>
                 <p className="lead">Rýchla pomoc.</p>

@@ -1,9 +1,9 @@
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
-This a fronted web app helping to people handle Covid19 infections with request for help. (in Slovak language)
+This is the fronted web app helping to people handle Covid19 infections with request for help. (in Slovak language)
 ![Screenshot of frontend home](public/screenshot1.png)
 
-This a status web app helping to people handle Covid19 infections with request for help. (in Slovak language)
+This is the status web app helping to people handle Covid19 infections with request for help. (in Slovak language)
 ![Screenshot of frontend home](public/screenshot2.png)
 
 ## Available Scripts

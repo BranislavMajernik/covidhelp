@@ -7,17 +7,17 @@ export default class HBarChart extends React.Component {
     dataHorizontal: {
       labels: ['Testovaní', 'Doručené jedlo', 'Celkom vybavených'],
       datasets: [
-        { label: "Dátový súbor",  
+        { label: "Počet: ",  
           data: [22, 33, 55],
           fill: false,
           backgroundColor: [
-            'rgba(255, 99, 132, 0.2)',
-            'rgba(54, 255, 235, 0.2)',
+            'rgba(255, 0, 0, 0.2)',
+            'rgba(0, 0, 255, 0.2)',
             'rgba(99, 203, 54, 0.2)'
           ],
           borderColor: [
-            'rgb(255, 99, 132)',
-            'rgb(54, 255, 255)',
+            'rgb(255, 0, 0)',
+            'rgb(0, 0, 255)',
             'rgb(54, 255, 54)'
           ],
           borderWidth: 1

@@ -5,6 +5,8 @@ import TableAc from './TableAc';
 import TableAcd from './TableAcd';
 import axios from 'axios';
 import bgimage from './hero_bg_blue.png'
+import {Animated} from "react-animated-css";
+import TableRow from './TableRow';
 
 
 export default class About extends Component{
@@ -13,40 +15,39 @@ export default class About extends Component{
         super(props);
         this.state = {
           contacts: [],
-          patients: []
+          patients: [],
+          concount: []
         };
       }
 
     componentDidMount() {
 
-
-      axios.get('Access-Control-Allow-Origin: https://localhost:3000/api/patients/')
-      .then(function (response) {
-        this.setState({ patients: response })
-      // handle success
-      console.log(response);
-      })
-      .catch(function (error) {
-      // handle error
-      console.log(error);
-      })
-
-
-      //  fetch('https://bnwcsnniopjzils-atpdbbmsk.adb.uk-london-1.oraclecloudapps.com/ords/books_admin/c19_patients/')
-        fetch('https://127.0.0.1:4000/api/patients/')
+        fetch('https://bnwcsnniopjzils-atpdbbmsk.adb.uk-london-1.oraclecloudapps.com/ords/books_admin/c19_patients/')
+        //fetch('https://127.0.0.1:4000/api/patients/')
         .then(res => res.json())
         .then((data) => {
-          this.setState({ patients: data })
-          console.log(data); 
+        this.setState({ patients: data.items });
         })
-        //fetch('https://bnwcsnniopjzils-atpdbbmsk.adb.uk-london-1.oraclecloudapps.com/ords/books_admin/k19_clients/')
-        fetch('https://localhost:4000/api/clients/')
+        fetch('https://bnwcsnniopjzils-atpdbbmsk.adb.uk-london-1.oraclecloudapps.com/ords/books_admin/covid/clients/count/')
+        //fetch('https://127.0.0.1:4000/api/patients/')
+        .then(res => res.json())
+        .then((data) => {
+        console.log("Toto je pocet: " + data.items.map((ludia) => ({ludia})));
+        this.setState({ concount: data.items });
+        })
+        fetch('https://bnwcsnniopjzils-atpdbbmsk.adb.uk-london-1.oraclecloudapps.com/ords/books_admin/covid/clients/')
+        //fetch('https://localhost:4000/api/clients/')
         .then(res => res.json())
         .then((data) => {
         this.setState({ contacts: data.items }) 
-    })
-        .catch(console.log)
+        })
+        .catch(console.log);
       }
+
+      tabRow(){
+        return this.state.contacts.map(function(object, i){
+            return <TableRow obj={object} key={i} />;
+        })};
 
     render(){
         return(
@@ -57,19 +58,23 @@ export default class About extends Component{
                 <p className="lead">Poskytovatelia.</p>
                 <Row>
                 <Col sm="2"> </Col>
-                <Col sm="2">    
+                <Col sm="2">
+                <Animated animationIn="zoomIn" animationOut="fadeOut" isVisible={true}>    
                 <Card body inverse color="danger">
                 <Button color="warning" outline>
                     Počet čakajúcich pacientov <h2><Badge color="secondary">4</Badge></h2>
                 </Button>
                 </Card>
+                </Animated>
                 </Col>
-                <Col sm="2">    
+                <Col sm="2">
+                <Animated animationIn="zoomIn" animationOut="fadeOut" isVisible={true}>    
                 <Card body inverse color="primary">
                 <Button color="warning" outline>
-                    Počet čakajúcich na jedlo <h2><Badge color="secondary">8</Badge></h2>
+                    Počet čakajúcich na jedlo <h2><Badge color="secondary">2</Badge></h2>
                 </Button>
                 </Card>
+                </Animated>
                 </Col>
                 <Col sm="2">    
                 <HBarChart/>
@@ -82,7 +87,7 @@ export default class About extends Component{
                 <TableAc patients={this.state.patients} />
                 </Col> 
                 <Col sm="4">
-                <TableAcd patients={this.state.contacts} />
+                { this.tabRow() }    
                 </Col>
                 </Row>
               </Container>
