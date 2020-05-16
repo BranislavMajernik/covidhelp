@@ -4,6 +4,8 @@ import { Card, CardTitle, CardText, Button, Row, Col} from "reactstrap";
 import {Animated} from "react-animated-css";
 import axios from 'axios';
 
+import TableRow from './TableRow';
+
     const TableAc = ({ patients }) => {
 
      function onKlik(obj) {

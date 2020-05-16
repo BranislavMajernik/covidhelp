@@ -49,6 +49,12 @@ export default class About extends Component{
             return <TableRow obj={object} key={i} />;
         })};
 
+
+      tabRow1(){
+            return this.state.patients.map(function(object, i){
+                return <TableRow obj={object} key={i} />;
+            })};   
+
     render(){
         return(
             <div>
@@ -84,7 +90,7 @@ export default class About extends Component{
                 <p></p>
                 <Row>
                 <Col sm="4">
-                <TableAc patients={this.state.patients} />
+                { this.tabRow1() }
                 </Col> 
                 <Col sm="4">
                 { this.tabRow() }    

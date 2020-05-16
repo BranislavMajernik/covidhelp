@@ -8,7 +8,6 @@ import Result1 from './components/Result1';
 import Result2 from './components/Result2';
 import Provider from './components/Provider';
 import Menu from './components/Menu';
-import MenuCard from './components/MenuCard';
 import Header from './components/Header';
 
 class App extends Component {
@@ -22,8 +21,6 @@ class App extends Component {
 							props =>
 							<div>
 								<Header />
-								<MenuCard />
-                
 							</div>
 							} />
 						<Route exact path='/about' component={About} />

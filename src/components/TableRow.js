@@ -20,8 +20,8 @@ class TableRow extends Component {
         const headers = {
             'Content-Type': 'text/plain'
         };
-        
-        await axios.put('https://bnwcsnniopjzils-atpdbbmsk.adb.uk-london-1.oraclecloudapps.com/ords/books_admin/covid/clients/',this.props.obj.telephone,{headers})
+        //await axios.put('https://bnwcsnniopjzils-atpdbbmsk.adb.uk-london-1.oraclecloudapps.com/ords/books_admin/covid/clients/',this.props.obj.telephone)
+        await axios.post('http://localhost:4000/claim/claim',{telephone:this.props.obj.telephone})
            .then(res => console.log(res.data))
            .catch(err => console.log(err))
         this.props.history.push('/result1');    
