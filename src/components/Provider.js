@@ -7,6 +7,7 @@ import axios from 'axios';
 import bgimage from './hero_bg_blue.png'
 import {Animated} from "react-animated-css";
 import TableRow from './TableRow';
+import TableRow1 from './TableRow1';
 
 
 export default class About extends Component{
@@ -22,7 +23,7 @@ export default class About extends Component{
 
     componentDidMount() {
 
-        fetch('https://bnwcsnniopjzils-atpdbbmsk.adb.uk-london-1.oraclecloudapps.com/ords/books_admin/c19_patients/')
+        fetch('https://bnwcsnniopjzils-atpdbbmsk.adb.uk-london-1.oraclecloudapps.com/ords/books_admin/covidp/patients/')
         //fetch('https://127.0.0.1:4000/api/patients/')
         .then(res => res.json())
         .then((data) => {
@@ -52,7 +53,7 @@ export default class About extends Component{
 
       tabRow1(){
             return this.state.patients.map(function(object, i){
-                return <TableRow obj={object} key={i} />;
+                return <TableRow1 obj={object} key={i} />;
             })};   
 
     render(){
